@@ -1,7 +1,7 @@
-Flask==2.2.2
-Flask_RESTful==0.3.9
-marshmallow==3.18.0
-mongoengine==0.24.2
-numpy==1.16.3
-tensorflow==2.10.0
-Werkzeug==0.16.0
+Flask
+Flask_RESTful
+marshmallow
+mongoengine
+numpy
+tensorflow
+Werkzeug
