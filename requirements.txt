@@ -3,5 +3,5 @@ Flask_RESTful==0.3.9
 marshmallow==3.18.0
 mongoengine==0.24.2
 numpy==1.16.3
-tensorflow==2.0.0
+tensorflow==2.10.0
 Werkzeug==0.16.0
