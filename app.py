@@ -11,8 +11,8 @@ UPLOAD_FOLDER = './uploads'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 api = Api(app)
-# disease_db_connection = connect('disease', host='localhost', port=27017)
-disease_db_connection = connect('disease', 'mongodb+srv://m001-student:m001-student@sandbox.h7oloku.mongodb.net/test')
+#disease_db_connection = connect('disease', host='localhost', port=27017)
+disease_db_connection = connect(host='mongodb+srv://krishan99:2x5DEonuG2kCRkLo@analytics.ycjra.mongodb.net/?retryWrites=true&w=majority',db='disease')
 # rice_leaf_disease_detector = RiceLeafDiseaseDetector()
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
@@ -136,4 +136,4 @@ api.add_resource(FeedBackHandler, "/FeedBack")
 if __name__ == 'main':
     # host="127.0.0.1", port=80
     # debug=True
-    app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
+    app.run(port=int(os.environ.get("PORT", 3000)),host='0.0.0.0',debug=True)
