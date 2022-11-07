@@ -5,3 +5,4 @@ mongoengine
 numpy
 tensorflow
 Werkzeug
+PIL
