@@ -133,7 +133,7 @@ class FeedBackHandler(Resource):
 api.add_resource(ImageClassifier, "/Predict")
 api.add_resource(FeedBackHandler, "/FeedBack")
 
-if __name__ == 'main':
+if __name__ == '__main__':
     # host="127.0.0.1", port=80
     # debug=True
-    app.run(port=int(os.environ.get("PORT", 3000)),host='0.0.0.0',debug=True)
+    app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0')
