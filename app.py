@@ -8,6 +8,8 @@ from datetime import datetime
 from marshmallow import Schema, fields, validates, validate
 
 UPLOAD_FOLDER = './uploads'
+if not(os.path.isdir(UPLOAD_FOLDER)):
+    os.mkdir(UPLOAD_FOLDER)
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 api = Api(app)
