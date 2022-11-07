@@ -6,6 +6,7 @@ from werkzeug.utils import secure_filename
 from mongoengine import *
 from datetime import datetime
 from marshmallow import Schema, fields, validates, validate
+from RiceLeafDiseaseDetector import RiceLeafDiseaseDetector
 
 UPLOAD_FOLDER = './uploads'
 if not(os.path.isdir(UPLOAD_FOLDER)):
@@ -15,7 +16,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 api = Api(app)
 #disease_db_connection = connect('disease', host='localhost', port=27017)
 disease_db_connection = connect(host='mongodb+srv://krishan99:2x5DEonuG2kCRkLo@analytics.ycjra.mongodb.net/?retryWrites=true&w=majority',db='disease')
-# rice_leaf_disease_detector = RiceLeafDiseaseDetector()
+rice_leaf_disease_detector = RiceLeafDiseaseDetector()
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 
@@ -86,10 +87,10 @@ class ImageClassifier(Resource):
         file_name = secure_filename(random_name) + ".jpg"
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], file_name))
         image_path = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
-        # prediction = rice_leaf_disease_detector.detect(image_path)
+        prediction = rice_leaf_disease_detector.detect(image_path)
         os.remove(image_path)
         response = {
-            "prediction": "Brown spot",  # prediction,
+            "prediction": prediction,  # prediction,
             "statusCode": 200
         }
 
