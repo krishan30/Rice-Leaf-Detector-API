@@ -118,7 +118,6 @@ class FeedBackHandler(Resource):
         image_file.save(os.path.join(app.config['UPLOAD_FOLDER'], file_name))
         image_path = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
         today_date_time = datetime.now()
-        print(today_date_time)
         dis = Disease(**{"image_file_name": file_name, "date_time": today_date_time,
                          "corrected_disease": request.form['corrected_disease']})
         with open(image_path, 'rb') as fd:
